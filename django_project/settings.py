@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'BotApp',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -51,6 +52,9 @@ ROOT_URLCONF = 'django_project.urls'
 
 WSGI_APPLICATION = 'django_project.wsgi.application'
 
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates')
+)
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
