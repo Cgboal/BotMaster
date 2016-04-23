@@ -53,7 +53,7 @@ ROOT_URLCONF = 'django_project.urls'
 WSGI_APPLICATION = 'django_project.wsgi.application'
 
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates')
+    os.path.join(BASE_DIR, 'templates'),
 )
 
 # Database
@@ -61,12 +61,8 @@ TEMPLATE_DIRS = (
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django',
-        'USER': 'django',
-        'PASSWORD': 'xJbVYBTzfT',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'bots.db'),
     }
 }
 
