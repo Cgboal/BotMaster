@@ -9,6 +9,6 @@ def index(request):
     botName = request.POST.get('botName', False)
     if not botId and not botName:
         return render(request, 'index.html')
-    bot = Bots(request.POST.get('botId'), request.POST['botName'])
+    bot = Bots(botId, botName)
     bot.save()
     return render(request, 'botAdded.html')
