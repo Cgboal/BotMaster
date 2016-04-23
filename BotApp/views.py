@@ -9,4 +9,4 @@ def index(request):
         return render(request, 'index.html')
     bot = Bots(request.POST['botId'], request.POST['botName'])
     bot.save()
-    return render(request, 'index.html')
+    return render(request, 'botAdded.html')
