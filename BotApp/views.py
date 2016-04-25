@@ -10,15 +10,16 @@ def index(request):
     botName = request.POST.get('botName', False)
     auth = request.POST.get('auth', False)
     if not botId or not botName or not auth:
-        if auth != genTimeSeed():
-            return render(request, 'index.html')
+        return render(request, 'index.html')
+    elif auth != genTimeSeed():
+        return render(request, 'index.html')
     bot = Bots(botId=botId, botName=botName)
     bot.save()
     return render(request, 'botAdded.html')
 
 def genTimeSeed():
     seed = roundDown(int(time.time()), 5)
-    return hashlib.md5(seed).hexdigest()
+    return hashlib.md5(str(seed)).hexdigest()
 
 def roundDown(num, factor):
     return num - (num%factor)
