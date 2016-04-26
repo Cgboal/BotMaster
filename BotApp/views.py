@@ -21,7 +21,7 @@ def reg(request):
             bot = Bot(botId=botId, botName=botName, lastSeen=t, platform=botPlat)
             bot.save()
             return render(request, 'botAdded.html')
-        exists.lastSeen = t - exists.lastSeen
+        exists.lastSeen = t
         exists.save()
     return render(request, 'index.html')
 
