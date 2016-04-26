@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
-from BotApp import urls
+from BotApp import views
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -10,5 +10,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', include(urls)),
+    url(r'^$',  views.index),
+    url(r'^reg/$', views.reg),
 )
