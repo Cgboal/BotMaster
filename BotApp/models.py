@@ -17,3 +17,12 @@ class Command(models.Model):
 
     def __str__(self):
         return self.cmd
+
+class Host(models.Model):
+    botId = models.CharField(max_length=32)
+    botName = models.CharField(max_length=100)
+    host = models.CharField(max_length=30)
+    up = models.BooleanField()
+
+    def __str__(self):
+        return "%s :: %s :: %s" % self.botName, self.host, str(self.up)

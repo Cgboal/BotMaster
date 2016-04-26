@@ -14,4 +14,5 @@ urlpatterns = patterns('',
     url(r'^reg/$', views.reg),
     url(r'^beacon/$', views.beacon),
     url(r'^cmd/$', views.cmd),
+    url(r'^ping/$', views.ping)
 )
