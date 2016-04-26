@@ -44,7 +44,7 @@ def beacon(request):
             x = None
             for command in cmd:
                 x = command
-            context = {'bot' : x['botId'], 'cmd' : x['cmd']}
+            context = {'bot' : x.botId, 'cmd' : x.cmd}
             return render(request, 'run.html', context)
     return render(request, 'index.html')
 
