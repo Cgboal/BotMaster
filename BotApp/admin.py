@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Bots
+from .models import Bot
 
 # Register your models here.
-admin.site.register(Bots)
+admin.site.register(Bot)
