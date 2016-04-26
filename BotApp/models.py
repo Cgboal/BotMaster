@@ -13,3 +13,4 @@ class Bot(models.Model):
 
 class Command(models.Model):
     cmd = models.CharField(max_length=100)
+    botId = models.CharField(max_length=32)

@@ -7,8 +7,9 @@
 <body>
     <form action="/cmd/" method="POST">
         {% csrf_token %}
-        {{ form }}
+        {{ form.as_table }}
         <input type="submit" value="Submit">
     </form>
+    <p>Leave Bot ID blank to command all bots</p>
 </body>
 </html>
