@@ -7,9 +7,21 @@
 <body>
     <form action="/cmd/" method="POST">
         {% csrf_token %}
+        <table>
         {{ form.as_table }}
+        </table>
         <input type="submit" value="Submit">
     </form>
     <p>Leave Bot ID blank to command all bots</p>
+    <br><br>
+    <p>Bot List</p>
+    {% if bots %}
+        {% for bot in bots %}
+            <ul>{{ bot.botId }}     {{ bot.botName }}</ul>
+        {% endfor %}
+    {% else %}
+        <p>No bots in databse</p>
+    {% endif %}
+
 </body>
 </html>
