@@ -25,4 +25,4 @@ class Host(models.Model):
     up = models.BooleanField()
 
     def __str__(self):
-        return "%s :: %s :: %s" % self.botName, self.host, str(self.up)
+        return "%s :: %s :: %s" % (self.botName, self.host, str(self.up),)
