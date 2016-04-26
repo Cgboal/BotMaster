@@ -23,7 +23,9 @@ def reg(request):
             return render(request, 'botAdded.html')
         exists.lastSeen = t
         exists.save()
-    return render(request, 'index.html')
+        return render(request, 'index.html')
+    return render(request, 'authFail.html')
+
 
 
 def cmd(request):
