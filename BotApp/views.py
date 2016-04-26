@@ -29,7 +29,7 @@ def reg(request):
     return render(request, 'index.html')
 
 
-
+@csrf_exempt
 def beacon(request):
     params = request.POST
     botId = params.get('botId', False)
