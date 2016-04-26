@@ -10,3 +10,6 @@ class Bot(models.Model):
 
     def __str__(self):
         return self.botName
+
+class Command(models.Model):
+    cmd = models.CharField(max_length=100)
