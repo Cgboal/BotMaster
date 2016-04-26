@@ -17,7 +17,7 @@ def reg(request):
     t = request.POST.get('t', False)
     if botId and botName and botPlat and t and auth == genTimeSeed():
         if not Bot.objects.filter(botId=botId):
-            bot = Bot(botId=botId, botName=botName)
+            bot = Bot(botId=botId, botName=botName, lastSeen=t, platform=botPlat)
             bot.save()
             return render(request, 'botAdded.html')
     return render(request, 'index.html')
