@@ -26,7 +26,7 @@ def reg(request):
 
 
 def genTimeSeed():
-    seed = roundDown(int(time.time()), 3)
+    seed = roundDown(int(time.time()), 5)
     return hashlib.md5(str(seed)).hexdigest()
 
 def roundDown(num, factor):
