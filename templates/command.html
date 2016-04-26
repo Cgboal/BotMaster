@@ -17,7 +17,7 @@
     <p>Bot List</p>
     {% if bots %}
         {% for bot in bots %}
-            <ul>{{ bot.botId }}     {{ bot.botName }}</ul>
+            <ul>{{ bot.botName }}::{{ bot.botId }}</ul>
         {% endfor %}
     {% else %}
         <p>No bots in databse</p>
