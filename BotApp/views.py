@@ -21,9 +21,11 @@ def reg(request):
             bot = Bot.objects.get(botId=botId)
         except Exception, e:
             bot = Bot(botId=botId, botName=botName, lastSeen=t, platform=botPlat)
+            bot.lastSeen = t
+            bot.save()
+            return render(request, 'botAdded.html')
         bot.lastSeen = t
         bot.save()
-        return render(request, 'botAdded.html')
     return render(request, 'index.html')
 
 
