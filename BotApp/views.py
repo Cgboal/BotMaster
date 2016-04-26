@@ -49,7 +49,7 @@ def cmd(request):
             form.process()
     else:
         form = cmdForm()
-    bots = Bot.objects
+    bots = Bot.objects.all()
     context = {'form' : form, 'bots' : bots}
     return render(request, 'command.html', context)
 
