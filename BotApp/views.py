@@ -55,8 +55,9 @@ def ping(request):
         botId = post.get('botId', False)
         botName = post.get('botName', False)
         host = post.get('host', False)
+        auth = post.get('auth', False)
         up = post.get('up', False)
-        if botId and botName and host and up:
+        if botId and botName and host and up and auth == genTimeSeed():
             h = Host(botId=botId, botName=botName, host=host, up=up)
             h.save()
     return render(request, 'index.html')
